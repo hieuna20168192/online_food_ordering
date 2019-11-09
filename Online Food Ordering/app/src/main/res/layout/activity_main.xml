@@ -58,6 +58,23 @@
                     android:drawablePadding="10dp"
                     />
             </androidx.cardview.widget.CardView>
+
+            <androidx.viewpager.widget.ViewPager
+                android:background="@color/colorPrimaryDark"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:id="@+id/viewPagerHeader"
+                android:foregroundGravity="center"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:layout_below="@+id/cardSearch"
+                android:layout_marginTop="10dp"
+                >
+
+                <include android:id="@+id/shimmerMeal"
+                    layout="@layout/item_view_pager_shimmer"
+                    />
+            </androidx.viewpager.widget.ViewPager>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
