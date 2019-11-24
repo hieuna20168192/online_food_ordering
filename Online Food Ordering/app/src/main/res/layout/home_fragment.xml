@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/headerView"
+                android:background="@color/colorBackground">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:background="@color/colorPrimaryLight"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:id="@+id/title"
+                    android:textColor="@color/colorWhite"
+                    android:text="What Would You
+                     Like To Eat ?"
+                    android:textStyle="bold"
+                    android:textSize="30sp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="40dp"
+                    />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:background="@color/colorWhite"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/viewPagerHeader"
+                    android:foregroundGravity="center"
+                    android:overScrollMode="never"
+                    android:clipToPadding="false"
+                    android:layout_below="@+id/title"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="30dp"
+                    >
+                    <include android:id="@+id/shimmerMeal"
+                        layout="@layout/item_view_pager_shimmer"
+                        />
+                </androidx.viewpager.widget.ViewPager>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cardSearch"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_below="@+id/viewPagerHeader"
+                    app:cardBackgroundColor="@color/colorPrimaryDark"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:padding="10dp"
+                        android:text="Search Your Recipes..."
+                        android:textColor="@color/colorPrimaryLight"
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_search_primary_light"
+                        android:drawablePadding="10dp"
+                        />
+                </androidx.cardview.widget.CardView>
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</FrameLayout>
