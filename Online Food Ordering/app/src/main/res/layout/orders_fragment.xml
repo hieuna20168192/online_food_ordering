@@ -3,12 +3,169 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimaryLight"
     tools:context=".ui.orders.OrdersFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello Orders Fragment" />
+        android:id="@+id/headerView"
+        android:background="@color/colorBackground">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:background="@color/colorPrimaryLight"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="15dp"
+            android:text="Your Food Card"
+            android:gravity="center|top"
+            android:textColor="@color/colorWhite"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/colorWhite"
+            android:id="@+id/recyclerItems"
+            android:scrollbars="none"
+            android:layout_marginTop="15dp"
+            android:clipToPadding="false"
+            android:layout_below="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="5dp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardDetail"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="15dp"
+            android:layout_below="@+id/recyclerItems"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:padding="10dp"
+                        android:text="Cart Total"
+                        android:textColor="@color/colorPrimaryText"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="23.0"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:padding="10dp"
+                        android:text="Discount"
+                        android:textColor="@color/colorPrimaryText"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="3.0"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:padding="10dp"
+                        android:text="Tax"
+                        android:textColor="@color/colorPrimaryText"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="0.50"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="36dp"
+                        android:padding="10dp"
+                        android:text="Sub Total"
+                        android:textColor="@color/colorPrimaryText"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="36dp"
+                        android:gravity="right"
+                        android:padding="10dp"
+                        android:text="26.5"
+                        android:textColor="@color/colorPrimaryText"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/colorIcons"
+            android:id="@+id/cardSubmit"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="5dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical|center_horizontal"
+                android:padding="10dp"
+                android:textSize="19sp"
+                android:text="Proceed And Checkout"
+                android:textColor="@color/colorWhite"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
 
 </FrameLayout>
