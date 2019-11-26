@@ -21,10 +21,15 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
 
     private List<Category> categories;
     private Context context;
+    private static ClickListener clickListener;
 
     public ViewPagerHeaderAdapter(List<Category> categories, Context context) {
         this.categories = categories;
         this.context = context;
+    }
+
+    public void setOnItemClickListener(ClickListener clickListener) {
+        ViewPagerHeaderAdapter.clickListener = clickListener;
     }
 
     @Override
@@ -39,7 +44,7 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
 
     @NonNull
     @Override
-    public Object instantiateItem(@NonNull ViewGroup container, int position) {
+    public Object instantiateItem(@NonNull ViewGroup container, final int position) {
         View view = LayoutInflater.from(context).inflate(
                 R.layout.item_view_pager_header,
                 container,
@@ -56,6 +61,13 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
         String strCategoryName = categories.get(position).getCategoryName();
         categoryName.setText(strCategoryName);
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickListener.onClick(v, position);
+            }
+        });
+
         container.addView(view, 0);
         return view;
     }
@@ -68,5 +80,9 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
     @Override
     public float getPageWidth(int position) {
         return 0.6f;
+    }
+
+    public interface ClickListener {
+        void onClick(View v, int position);
     }
 }

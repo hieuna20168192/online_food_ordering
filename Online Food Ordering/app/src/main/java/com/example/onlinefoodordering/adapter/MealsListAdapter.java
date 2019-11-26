@@ -1,6 +1,7 @@
 package com.example.onlinefoodordering.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.model.Meal;
+import com.example.onlinefoodordering.ui.detail.DetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -65,7 +67,9 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.View
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(v.getContext(), DetailActivity.class);
+            v.getContext().startActivity(intent);
         }
     }
 }

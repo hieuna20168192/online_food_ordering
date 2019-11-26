@@ -2,6 +2,7 @@ package com.example.onlinefoodordering.ui.home;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,12 +15,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.MealsListAdapter;
 import com.example.onlinefoodordering.adapter.ViewPagerHeaderAdapter;
 import com.example.onlinefoodordering.model.Category;
 import com.example.onlinefoodordering.model.Meal;
+import com.example.onlinefoodordering.ui.categories.CategoryActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -59,6 +62,13 @@ public class HomeFragment extends Fragment {
         viewPagerCategory.setPadding(0, 0, 0, 0);
         viewPagerCategory.setPageMargin(50);
         headerAdapter.notifyDataSetChanged();
+        headerAdapter.setOnItemClickListener(new ViewPagerHeaderAdapter.ClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getContext(), CategoryActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
