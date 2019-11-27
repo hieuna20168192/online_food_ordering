@@ -1,5 +1,6 @@
 package com.example.onlinefoodordering.adapter;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -36,6 +37,7 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.View
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_recycler_meal,
                 parent, false);
+
         return new ViewHolder(view);
     }
 
@@ -58,18 +60,38 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.View
             implements View.OnClickListener {
         ImageView mealThumb;
         TextView mealName;
+        ImageView cartHome;
+        TextView cancel;
+
+        // Dialog cartHome
+        private Dialog dialog;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mealThumb = itemView.findViewById(R.id.mealThumb);
             mealName = itemView.findViewById(R.id.mealName);
-            itemView.setOnClickListener(this);
+            cartHome = itemView.findViewById(R.id.cart_home);
+
+            // Set Dialog
+            dialog = new Dialog(itemView.getContext());
+            dialog.setContentView(R.layout.popup_item);
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            cancel = dialog.findViewById(R.id.cancel);
+            cancel.setOnClickListener(this);
+            cartHome.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            //Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
+            /*//Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(v.getContext(), DetailActivity.class);
-            v.getContext().startActivity(intent);
+            v.getContext().startActivity(intent);*/
+            if (v.getId() == cartHome.getId()){
+                dialog.show();
+            }
+            if (v.getId() == cancel.getId()) {
+                dialog.dismiss();
+            }
         }
     }
 }

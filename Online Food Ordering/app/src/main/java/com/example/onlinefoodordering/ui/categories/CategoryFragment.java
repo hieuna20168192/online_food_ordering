@@ -34,7 +34,7 @@ public class CategoryFragment extends Fragment {
         View v =  inflater.inflate(R.layout.category_fragment, container, false);
         MealsListAdapter adapter = new MealsListAdapter(Meal.sMealList, getActivity());
         recyclerView = v.findViewById(R.id.recyclerView);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

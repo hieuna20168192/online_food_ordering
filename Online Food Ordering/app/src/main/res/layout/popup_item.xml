@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_home_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="0dp"
+            app:cardBackgroundColor="@color/colorPrimaryLight"
+            >
+            <TextView
+                android:id="@+id/cancel"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="end"
+                android:layout_margin="8dp"
+                android:background="@drawable/circle_background"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:text="X"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="Add Dish"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"/>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="32dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/sample_image_meal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/card_home_header" />
+
+        <TextView
+            android:id="@+id/popup_title_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="kalua Pig"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:maxWidth="100dp"
+            android:maxLines="2"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/popup_cost_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDark"
+            android:maxWidth="100dp"
+            android:maxLines="2"
+            android:text="4.5$"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintStart_toStartOf="@+id/popup_title_meal" />
+
+        <TextView
+            android:id="@+id/popup_min_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxWidth="100dp"
+            android:maxLines="1"
+            android:text="22' min order"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="@+id/popup_title_meal"
+            app:layout_constraintTop_toBottomOf="@+id/popup_title_meal" />
+
+        <com.mohammedalaa.valuecounterlib.ValueCounterView
+            android:id="@+id/popup_number_meal"
+            android:layout_width="80dp"
+            android:layout_height="24sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:addButton="@drawable/ic_add_24dp"
+            app:defaultValue="1"
+            app:layout_constraintBottom_toBottomOf="@+id/popup_cost_meal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxValue="10"
+            app:minValue="1"
+            app:subButton="@drawable/ic_sub_24dp"
+            app:valueColor="@color/colorRating" />
+
+        <View
+            style="@style/Divider"
+            android:background="@color/colorWhiteDark"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="36sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/button_style"
+            android:padding="8dp"
+            android:text="Add To Cart"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/popup_total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:maxLines="2"
+            android:text="4.56$"
+            android:padding="8dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/button"
+            app:layout_constraintStart_toStartOf="@+id/imageView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
