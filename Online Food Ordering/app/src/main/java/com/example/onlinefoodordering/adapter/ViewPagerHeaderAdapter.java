@@ -79,7 +79,7 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
 
     @Override
     public float getPageWidth(int position) {
-        return 0.6f;
+        return 0.4f;
     }
 
     public interface ClickListener {

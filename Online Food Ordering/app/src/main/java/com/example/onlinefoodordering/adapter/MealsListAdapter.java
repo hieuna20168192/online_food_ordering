@@ -79,13 +79,16 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.View
             cancel = dialog.findViewById(R.id.cancel);
             cancel.setOnClickListener(this);
             cartHome.setOnClickListener(this);
+            mealThumb.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            /*//Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(v.getContext(), DetailActivity.class);
-            v.getContext().startActivity(intent);*/
+            if (v.getId() == mealThumb.getId()) {
+                //Toast.makeText(itemView.getContext(), "Clicked Item", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), DetailActivity.class);
+                v.getContext().startActivity(intent);
+            }
             if (v.getId() == cartHome.getId()){
                 dialog.show();
             }

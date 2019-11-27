@@ -22,7 +22,7 @@
                 android:background="@color/colorBackground">
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="220dp"
+                    android:layout_height="200dp"
                     android:background="@color/colorPrimaryLight"
                     />
 
@@ -53,16 +53,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="16dp"
                     android:layout_marginRight="16dp"
-                    android:layout_marginTop="30dp"
-                    app:cardBackgroundColor="@color/colorWhiteDark"
+                    android:layout_marginTop="40dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     android:layout_below="@+id/title"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp"
                     >
                     <androidx.viewpager.widget.ViewPager
-                        android:background="@color/colorWhite"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_height="80dp"
                         android:id="@+id/viewPagerHeader"
                         android:foregroundGravity="center"
                         android:overScrollMode="never"
