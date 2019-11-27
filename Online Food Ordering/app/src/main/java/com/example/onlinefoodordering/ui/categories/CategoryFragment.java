@@ -2,6 +2,7 @@ package com.example.onlinefoodordering.ui.categories;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.ClipData;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.onlinefoodordering.R;
+import com.example.onlinefoodordering.adapter.ItemListAdapter;
 import com.example.onlinefoodordering.adapter.MealsListAdapter;
 import com.example.onlinefoodordering.model.Meal;
 
@@ -32,7 +34,7 @@ public class CategoryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.category_fragment, container, false);
-        MealsListAdapter adapter = new MealsListAdapter(Meal.sMealList, getActivity());
+        ItemListAdapter adapter = new ItemListAdapter(Meal.sMealList, getActivity());
         recyclerView = v.findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);

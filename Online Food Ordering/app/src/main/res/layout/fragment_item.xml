@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    app:cardCornerRadius="10dp"
+    android:elevation="5dp"
+    tools:context=".ui.dish_item.ItemFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_meal_thumb"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/sample_image_meal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_title_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:maxWidth="100dp"
+            android:maxLines="1"
+            android:text="kalua Pig"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/item_meal_thumb"
+            app:layout_constraintTop_toTopOf="@+id/item_meal_thumb" />
+
+        <TextView
+            android:id="@+id/item_cost_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="100dp"
+            android:maxLines="1"
+            android:text="4.5$"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/item_meal_thumb"
+            app:layout_constraintStart_toStartOf="@+id/item_title_meal" />
+
+        <TextView
+            android:id="@+id/item_min_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:maxWidth="100dp"
+            android:maxLines="1"
+            android:text="22' min order"
+            android:textSize="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/item_cost_meal"
+            app:layout_constraintStart_toStartOf="@+id/item_title_meal" />
+
+        <com.mohammedalaa.valuecounterlib.ValueCounterView
+            android:id="@+id/item_number_meal"
+            android:layout_width="80dp"
+            android:layout_height="24sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            app:addButton="@drawable/ic_add_24dp"
+            app:defaultValue="0"
+            app:layout_constraintBottom_toBottomOf="@+id/item_cost_meal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:maxValue="10"
+            app:minValue="0"
+            app:subButton="@drawable/ic_sub_24dp"
+            app:valueColor="@color/colorRating" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
