@@ -42,7 +42,7 @@ The app allowed customers to choose to have the food delivered or for pick-up. T
 
 #### API Reference
 
---Twitter - 
+-- Twitter - 
 -- Website - 
 
 [Back To The Top](#online_food_ordering)
