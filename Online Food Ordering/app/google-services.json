@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "856760227825",
+    "firebase_url": "https://food-online-ordering.firebaseio.com",
+    "project_id": "food-online-ordering",
+    "storage_bucket": "food-online-ordering.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:856760227825:android:118dcdabd5682828de9650",
+        "android_client_info": {
+          "package_name": "com.example.onlinefoodordering"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "856760227825-okovvk48fg0e5kqdvfi6ltr0aeocvoqe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnjD2vQNNm6FRCWeHXo9KfCUFKWtxtyvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "856760227825-okovvk48fg0e5kqdvfi6ltr0aeocvoqe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

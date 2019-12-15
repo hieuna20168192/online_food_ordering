@@ -1,4 +1,4 @@
-package com.example.onlinefoodordering.ui;
+package com.example.onlinefoodordering.ui.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;

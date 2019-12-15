@@ -2,7 +2,6 @@ package com.example.onlinefoodordering.ui.home;
 
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,8 +15,6 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.MealsListAdapter;
