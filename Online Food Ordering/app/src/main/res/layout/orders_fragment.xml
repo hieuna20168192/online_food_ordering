@@ -145,28 +145,20 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_check_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardBackgroundColor="@color/colorIcons"
-            android:id="@+id/cardSubmit"
             android:layout_marginLeft="60dp"
             android:layout_marginRight="60dp"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="40dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="5dp">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:gravity="center_vertical|center_horizontal"
-                android:padding="10dp"
-                android:textSize="19sp"
-                android:text="Proceed And Checkout"
-                android:textColor="@color/colorWhite"
-                android:textStyle="bold" />
-        </androidx.cardview.widget.CardView>
+            android:background="@drawable/button_style"
+            android:padding="10dp"
+            android:text="Proceed And Checkout"
+            android:textColor="@color/colorWhite"
+            android:textSize="19sp"
+            android:textStyle="bold"/>
     </RelativeLayout>
 
 </FrameLayout>

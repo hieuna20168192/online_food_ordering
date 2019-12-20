@@ -1,12 +1,14 @@
 package com.example.onlinefoodordering.ui.login;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.onlinefoodordering.R;
+import com.example.onlinefoodordering.ui.main.MainActivity;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -38,10 +40,9 @@ public class LoginActivity extends DaggerAppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+//                loginViewModel.getAuthManages().login(email.getText().toString(), password.getText().toString());
+                Intent intent = new Intent(getApplication(), MainActivity.class);
                 startActivity(intent);
-                finish();*/
-                loginViewModel.getAuthManages().login(email.getText().toString(), password.getText().toString());
             }
         });
     }

@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="300dp"
     android:layout_height="400dp"
     app:cardBackgroundColor="@color/colorWhite"
@@ -93,20 +94,42 @@
             app:layout_constraintStart_toStartOf="@+id/popup_title_meal"
             app:layout_constraintTop_toBottomOf="@+id/popup_title_meal" />
 
-        <com.mohammedalaa.valuecounterlib.ValueCounterView
-            android:id="@+id/popup_number_meal"
-            android:layout_width="80dp"
-            android:layout_height="24sp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            app:addButton="@drawable/ic_add_24dp"
-            app:defaultValue="1"
-            app:layout_constraintBottom_toBottomOf="@+id/popup_cost_meal"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:maxValue="10"
-            app:minValue="1"
-            app:subButton="@drawable/ic_sub_24dp"
-            app:valueColor="@color/colorRating" />
+            android:layout_marginRight="8dp">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/i_plus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="6dp"
+                app:srcCompat="@drawable/ic_plus"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/t_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/_0"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:textColor="@color/colorWhiteDark"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/i_minus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:padding="6dp"
+                app:srcCompat="@drawable/ic_minus"
+                tools:ignore="VectorDrawableCompat" />
+        </LinearLayout>
 
         <View
             style="@style/Divider"
@@ -116,7 +139,7 @@
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toTopOf="@+id/button" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="36sp"

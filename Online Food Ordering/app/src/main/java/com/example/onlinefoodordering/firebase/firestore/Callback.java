@@ -5,12 +5,7 @@ import com.example.onlinefoodordering.model.Meal;
 
 import java.util.List;
 
-
-
-public interface FirestoreServices {
-
-    void retrieveMeals(Callback callback);
-
-    void retrieveTypes(Callback callback);
-
+public interface Callback {
+    default void onCallback(List<Meal> meals){}
+    default void onCategoryCallback(List<Category> categories){}
 }

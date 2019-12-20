@@ -20,7 +20,9 @@ import com.example.onlinefoodordering.adapter.ItemListAdapter;
 import com.example.onlinefoodordering.adapter.MealsListAdapter;
 import com.example.onlinefoodordering.model.Meal;
 
-public class CategoryFragment extends Fragment {
+import dagger.android.support.DaggerFragment;
+
+public class CategoryFragment extends DaggerFragment {
 
     private CategoryViewModel mViewModel;
 

@@ -16,9 +16,6 @@ public abstract class MainFragmentBindingModule {
     abstract HomeFragment provideHomeFragment();
 
     @ContributesAndroidInjector
-    abstract CategoryFragment provideCategoryFragment();
-
-    @ContributesAndroidInjector
     abstract OrdersFragment provideOrderFragment();
 
     @ContributesAndroidInjector
@@ -26,4 +23,6 @@ public abstract class MainFragmentBindingModule {
 
     @ContributesAndroidInjector
     abstract ProfileFragment provideProfileFragment();
+
+
 }

@@ -6,13 +6,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 import android.os.Bundle;
 import com.example.onlinefoodordering.R;
+import com.example.onlinefoodordering.di.component.DaggerApplicationComponent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
+import dagger.android.support.DaggerAppCompatActivity;
+
+public class MainActivity extends DaggerAppCompatActivity {
 
     private NavController navController;
     private BottomNavigationView bottom_nav;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

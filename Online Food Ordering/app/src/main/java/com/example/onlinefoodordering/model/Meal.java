@@ -1,42 +1,90 @@
 package com.example.onlinefoodordering.model;
 
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class Meal {
 
+    @SerializedName("id")
     private String idMeal;
+    @SerializedName("name")
     private String mealName;
+    @SerializedName("thumb")
     private String mealThumb;
+    @SerializedName("cost")
+    private Long cost;
+    @SerializedName("description")
+    private String description;
+    @SerializedName("minOrder")
+    private Long minOrder;
 
-    public String getIdMeal() {
+    private int quantity = 0;
+
+    public String getId() {
         return idMeal;
     }
 
-    public void setIdMeal(String idMeal) {
+    public void setId(String idMeal) {
         this.idMeal = idMeal;
     }
 
-    public String getMealName() {
+    public String getName() {
         return mealName;
     }
 
-    public void setMealName(String mealName) {
+    public void setName(String mealName) {
         this.mealName = mealName;
     }
 
-    public String getMealThumb() {
+    public String getThumb() {
         return mealThumb;
     }
 
-    public void setMealThumb(String mealThumb) {
+    public void setThumb(String mealThumb) {
         this.mealThumb = mealThumb;
+    }
+
+    public Long getCost() {
+        return cost;
+    }
+
+    public void setCost(Long cost) {
+        this.cost = cost;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Long getMinOrder() {
+        return minOrder;
+    }
+
+    public void setMinOrder(Long minOrder) {
+        this.minOrder = minOrder;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public Meal(String idMeal, String mealName, String mealThumb) {
         this.idMeal = idMeal;
         this.mealName = mealName;
         this.mealThumb = mealThumb;
+    }
+
+    public Meal() {
     }
 
     public static ArrayList<Meal> sMealList = new ArrayList<>();

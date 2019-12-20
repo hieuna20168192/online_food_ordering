@@ -1,6 +1,7 @@
 package com.example.onlinefoodordering.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,24 +9,39 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistryOwner;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.model.Category;
+import com.example.onlinefoodordering.ui.home.HomeViewModel;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerHeaderAdapter extends PagerAdapter {
 
-    private List<Category> categories;
-    private Context context;
+    private List<Category> categories = new ArrayList<>();
+
     private static ClickListener clickListener;
 
-    public ViewPagerHeaderAdapter(List<Category> categories, Context context) {
-        this.categories = categories;
-        this.context = context;
+    public ViewPagerHeaderAdapter(HomeViewModel viewModel,
+                                  LifecycleOwner lifecycleOwner) {
+        viewModel.getTypes().observe(lifecycleOwner, types -> {
+            categories.clear();
+            if (types != null) {
+                categories.addAll(types);
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    public void setList(List<Category> list) {
+        this.categories = list;
+        notifyDataSetChanged();
     }
 
     public void setOnItemClickListener(ClickListener clickListener) {
@@ -45,7 +61,7 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
     @NonNull
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, final int position) {
-        View view = LayoutInflater.from(context).inflate(
+        View view = LayoutInflater.from(container.getContext()).inflate(
                 R.layout.item_view_pager_header,
                 container,
                 false
@@ -54,11 +70,11 @@ public class ViewPagerHeaderAdapter extends PagerAdapter {
         ImageView categoryThumb = view.findViewById(R.id.categoryThumb);
         TextView categoryName = view.findViewById(R.id.categoryName);
 
-        String strCategoryThumb = categories.get(position).getCategoryThumb();
+        String strCategoryThumb = categories.get(position).getTypeThumb();
         //Picasso.get().load(strCategoryThumb).into(categoryThumb);
-        Glide.with(context).load(strCategoryThumb).placeholder(R.drawable.shadow_bottom_to_top).into(categoryThumb);
+        Glide.with(container.getContext()).load(strCategoryThumb).placeholder(R.drawable.shadow_bottom_to_top).into(categoryThumb);
 
-        String strCategoryName = categories.get(position).getCategoryName();
+        String strCategoryName = categories.get(position).getTypeName();
         categoryName.setText(strCategoryName);
 
         view.setOnClickListener(new View.OnClickListener() {

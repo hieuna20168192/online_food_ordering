@@ -90,7 +90,7 @@
                 app:layout_constraintStart_toStartOf="@id/mealName"/>
 
             <TextView
-                android:id="@+id/min_order"
+                android:id="@+id/item_cost_meal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
@@ -103,13 +103,14 @@
                 app:layout_constraintTop_toTopOf="@+id/mealName" />
 
             <TextView
+                android:id="@+id/min_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="22' Min Order"
                 android:textColor="@color/colorWhite"
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/textView"
-                app:layout_constraintEnd_toEndOf="@+id/min_order" />
+                app:layout_constraintEnd_toEndOf="@+id/item_cost_meal" />
 
             <TextView
                 android:id="@+id/textView"

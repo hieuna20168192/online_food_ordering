@@ -1,25 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sliding_cart"
+    android:gravity="bottom"
+    app:umanoPanelHeight="5dp"
+    app:umanoShadowHeight="4dp"
+    app:umanoOverlay="true"
     tools:context=".ui.main.MainActivity">
-    <fragment
-        android:id="@+id/nav_host_fragment"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:navGraph="@navigation/mobile_navigation"
-        app:defaultNavHost="true" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            app:navGraph="@navigation/mobile_navigation"
+            app:defaultNavHost="true" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav"/>
-
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_nav"/>
+    </LinearLayout>
+    <include
+        android:id="@+id/sliding_cart_view"
+        layout="@layout/sliding_cart"/>
+</com.sothree.slidinguppanel.SlidingUpPanelLayout>

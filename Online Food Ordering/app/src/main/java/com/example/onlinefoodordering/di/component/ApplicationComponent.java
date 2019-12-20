@@ -7,8 +7,6 @@ import com.example.onlinefoodordering.di.module.ActivityBindingModule;
 import com.example.onlinefoodordering.di.module.ContextModule;
 import com.example.onlinefoodordering.di.module.FirebaseModule;
 import com.example.onlinefoodordering.di.module.ViewModelModule;
-import com.example.onlinefoodordering.ui.home.HomeViewModel;
-import com.example.onlinefoodordering.utils.ViewModelFactory;
 
 import javax.inject.Singleton;
 
@@ -24,7 +22,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ActivityBindingModule.class,
         AndroidSupportInjectionModule.class,
         ViewModelModule.class,
-        FirebaseModule.class
+        FirebaseModule.class,
 })
 public interface ApplicationComponent extends AndroidInjector<DaggerApplication> {
 

@@ -10,11 +10,14 @@ import android.view.MenuItem;
 
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.ViewPagerCategoryAdapter;
+import com.example.onlinefoodordering.di.component.DaggerApplicationComponent;
 import com.example.onlinefoodordering.model.Category;
 import com.google.android.material.tabs.TabLayout;
 
+import dagger.android.support.DaggerAppCompatActivity;
 
-public class CategoryActivity extends AppCompatActivity {
+
+public class CategoryActivity extends DaggerAppCompatActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
