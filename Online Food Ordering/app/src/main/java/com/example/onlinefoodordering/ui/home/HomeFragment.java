@@ -1,17 +1,13 @@
 package com.example.onlinefoodordering.ui.home;
-
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -29,6 +25,7 @@ import com.example.onlinefoodordering.adapter.MealsListAdapter;
 import com.example.onlinefoodordering.adapter.ViewPagerHeaderAdapter;
 import com.example.onlinefoodordering.model.Meal;
 import com.example.onlinefoodordering.ui.categories.CategoryActivity;
+import com.example.onlinefoodordering.ui.orders.OrdersViewModel;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
 
 import javax.inject.Inject;
@@ -51,10 +48,10 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
 
     private TextView viewAll;
 
-
     @Inject
     ViewModelFactory viewModelFactory;
     private HomeViewModel homeViewModel;
+    private OrdersViewModel ordersViewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -62,6 +59,7 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
 
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         homeViewModel = ViewModelProviders.of(this, viewModelFactory).get(HomeViewModel.class);
+        ordersViewModel = ViewModelProviders.of(this, viewModelFactory).get(OrdersViewModel.class);
 
         // Navigate RecyclerView
         Log.d("onCallback", "run1");
@@ -76,7 +74,6 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
         mealsListAdapter = new MealsListAdapter(homeViewModel, this, this);
         LinearLayoutManager linearVertical = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.VERTICAL, false);
-        LinearLayoutManager linearHorizontal = new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false);
         recyclerMeals.setLayoutManager(linearVertical);
         recyclerMeals.setAdapter(mealsListAdapter);
         observableViewModel();
@@ -183,7 +180,7 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
 
     @Override
     public void itemSelected(Meal meal) {
-
+        ordersViewModel.updateCartList(meal);
     }
 
     private void runAnimation()
@@ -193,4 +190,5 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
         viewAll.clearAnimation();
         viewAll.startAnimation(a);
     }
+
 }

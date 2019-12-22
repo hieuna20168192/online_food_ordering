@@ -17,16 +17,25 @@ import android.view.ViewGroup;
 
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.ItemListAdapter;
+import com.example.onlinefoodordering.adapter.ItemSelectedListener;
 import com.example.onlinefoodordering.adapter.MealsListAdapter;
 import com.example.onlinefoodordering.model.Meal;
+import com.example.onlinefoodordering.ui.orders.OrdersViewModel;
+import com.example.onlinefoodordering.utils.ViewModelFactory;
+
+import javax.inject.Inject;
 
 import dagger.android.support.DaggerFragment;
 
-public class CategoryFragment extends DaggerFragment {
+public class CategoryFragment extends DaggerFragment implements ItemSelectedListener {
 
     private CategoryViewModel mViewModel;
 
     private RecyclerView recyclerView;
+
+    @Inject
+    ViewModelFactory factory;
+    private OrdersViewModel ordersViewModel;
 
     public static CategoryFragment newInstance() {
         return new CategoryFragment();
@@ -36,7 +45,11 @@ public class CategoryFragment extends DaggerFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v =  inflater.inflate(R.layout.category_fragment, container, false);
-        ItemListAdapter adapter = new ItemListAdapter(Meal.sMealList, getActivity());
+
+        // Set ViewModel
+        ordersViewModel = ViewModelProviders.of(this, factory).get(OrdersViewModel.class);
+
+        ItemListAdapter adapter = new ItemListAdapter(ordersViewModel, this ,this);
         recyclerView = v.findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -45,11 +58,5 @@ public class CategoryFragment extends DaggerFragment {
         return v;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
-        // TODO: Use the ViewModel
-    }
 
 }

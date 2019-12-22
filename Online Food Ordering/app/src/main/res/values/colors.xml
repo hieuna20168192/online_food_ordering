@@ -12,6 +12,7 @@
     <color name="colorBackground">#F4F7F7</color>
     <color name="colorYellow">#F79E1F</color>
     <color name="colorRating">#2783BD </color>
+    <color name="transparent">#00000000</color>
 
     <!-- colors for button style -->
 

@@ -3,5 +3,6 @@ import com.example.onlinefoodordering.model.Meal;
 
 public interface ItemSelectedListener {
 
-    void itemSelected(Meal meal);
+    default void changeCart(Meal meal){}
+    default void itemSelected(Meal meal){}
 }

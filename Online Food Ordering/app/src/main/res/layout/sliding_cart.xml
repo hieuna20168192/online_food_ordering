@@ -5,6 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/colorIcons"
+    android:clickable="true"
+    android:focusable="false"
     android:layout_height="68dp">
 
     <androidx.appcompat.widget.AppCompatImageView

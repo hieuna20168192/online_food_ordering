@@ -84,8 +84,14 @@ public class Meal {
         this.mealThumb = mealThumb;
     }
 
+    public Double calculateItemCost(){
+        return Double.valueOf((cost * quantity));
+    }
+
     public Meal() {
     }
+
+
 
     public static ArrayList<Meal> sMealList = new ArrayList<>();
     static {
