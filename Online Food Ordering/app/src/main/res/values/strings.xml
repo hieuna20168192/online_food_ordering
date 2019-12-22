@@ -16,4 +16,7 @@
     <string name="description">Description</string>
     <string name="related_product">Related Products</string>
     <string name="source">Source</string>
+    <string name="rupee_symbol">$</string>
+    <string name="view_cart">View Cart</string>
+    <string name="_0">0</string>
 </resources>

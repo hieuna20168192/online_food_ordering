@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 
 import com.example.onlinefoodordering.R;
 
-public class FavoriteFragment extends Fragment {
+import dagger.android.support.DaggerFragment;
+
+public class FavoriteFragment extends DaggerFragment {
 
     private FavoriteViewModel mViewModel;
 

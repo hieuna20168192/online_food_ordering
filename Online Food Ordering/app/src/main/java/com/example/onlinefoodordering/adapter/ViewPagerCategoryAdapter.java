@@ -18,6 +18,11 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
         super(fm);
         this.categories = categories;
     }
+
+    public void setCategoriesList(List<Category> list) {
+        this.categories = list;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public Fragment getItem(int position) {

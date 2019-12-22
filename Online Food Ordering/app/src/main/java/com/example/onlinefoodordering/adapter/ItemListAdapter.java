@@ -2,6 +2,7 @@ package com.example.onlinefoodordering.adapter;
 
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.onlinefoodordering.R;
+import com.example.onlinefoodordering.firebase.firestore.FirestoreServices;
 import com.example.onlinefoodordering.model.Meal;
 
 import java.util.List;
@@ -33,16 +35,15 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.fragment_item,
                 parent, false);
-
         return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int i) {
 
-        String strMealThumb = meals.get(i).getMealThumb();
+        String strMealThumb = meals.get(i).getThumb();
         Glide.with(context).load(strMealThumb).placeholder(R.drawable.shadow_bottom_to_top).into(holder.mealThumb);
-        String strMealName = meals.get(i).getMealName();
+        String strMealName = meals.get(i).getName();
         holder.mealName.setText(strMealName);
     }
 

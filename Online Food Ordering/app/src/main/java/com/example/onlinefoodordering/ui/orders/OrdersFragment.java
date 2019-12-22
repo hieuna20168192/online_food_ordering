@@ -18,7 +18,9 @@ import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.ItemListAdapter;
 import com.example.onlinefoodordering.model.Meal;
 
-public class OrdersFragment extends Fragment {
+import dagger.android.support.DaggerFragment;
+
+public class OrdersFragment extends DaggerFragment {
 
     private OrdersViewModel mViewModel;
 

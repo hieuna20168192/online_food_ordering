@@ -1,12 +1,18 @@
 package com.example.onlinefoodordering.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.ArrayList;
 
 public class Category {
 
+    @SerializedName("id")
     private String idCategory;
+    @SerializedName("typeName")
     private String CategoryName;
+    @SerializedName("typeThumb")
     private String CategoryThumb;
+    @SerializedName("typeDescription")
     private String description;
 
     public Category(String idCategory, String categoryName, String categoryThumb, String description) {
@@ -16,35 +22,38 @@ public class Category {
         this.description = description;
     }
 
-    public String getIdCategory() {
+    public Category() {
+    }
+
+    public String getId() {
         return idCategory;
     }
 
-    public void setIdCategory(String idCategory) {
+    public void setId(String idCategory) {
         this.idCategory = idCategory;
     }
 
-    public String getCategoryName() {
+    public String getTypeName() {
         return CategoryName;
     }
 
-    public void setCategoryName(String categoryName) {
+    public void setTypeName(String categoryName) {
         CategoryName = categoryName;
     }
 
-    public String getCategoryThumb() {
+    public String getTypeThumb() {
         return CategoryThumb;
     }
 
-    public void setCategoryThumb(String categoryThumb) {
+    public void setTypeThumb(String categoryThumb) {
         CategoryThumb = categoryThumb;
     }
 
-    public String getDescription() {
+    public String getTypeDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setTypeDescription(String description) {
         this.description = description;
     }
 
