@@ -7,10 +7,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.onlinefoodordering.R;
+import com.example.onlinefoodordering.ui.home.HomeViewModel;
 import com.example.onlinefoodordering.ui.orders.OrdersViewModel;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -35,6 +37,7 @@ public class MainActivity extends DaggerAppCompatActivity {
     @Inject
     ViewModelFactory factory;
     private OrdersViewModel ordersViewModel;
+    private HomeViewModel homeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainActivity extends DaggerAppCompatActivity {
 
         // Set ViewModel
         ordersViewModel = ViewModelProviders.of(this, factory).get(OrdersViewModel.class);
+        homeViewModel = ViewModelProviders.of(this, factory).get(HomeViewModel.class);
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         bottom_nav = findViewById(R.id.bottom_nav);
 

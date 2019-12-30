@@ -1,21 +1,30 @@
 package com.example.onlinefoodordering.model;
 
-public class User {
+import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
+public class User implements Serializable {
+
+    @SerializedName("uid")
     private String userId;
+    @SerializedName("userName")
     private String userName;
+    @SerializedName("profileThumb")
     private String userThumb;
+    @SerializedName("email")
     private String userEmail;
+    @SerializedName("role")
     private String userRole;
 
     public User() {
     }
 
-    public String getUserId() {
+    public String getUid() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUid(String userId) {
         this.userId = userId;
     }
 
@@ -27,27 +36,28 @@ public class User {
         this.userName = userName;
     }
 
-    public String getUserThumb() {
+    public String getProfileThumb() {
         return userThumb;
     }
 
-    public void setUserThumb(String userThumb) {
+    public void setProfileThumb(String userThumb) {
         this.userThumb = userThumb;
     }
 
-    public String getUserEmail() {
+
+    public String getEmail() {
         return userEmail;
     }
 
-    public void setUserEmail(String userEmail) {
+    public void setEmail(String userEmail) {
         this.userEmail = userEmail;
     }
 
-    public String getUserRole() {
+    public String getRole() {
         return userRole;
     }
 
-    public void setUserRole(String userRole) {
+    public void setRole(String userRole) {
         this.userRole = userRole;
     }
 
@@ -57,5 +67,16 @@ public class User {
         this.userThumb = userThumb;
         this.userEmail = userEmail;
         this.userRole = userRole;
+    }
+
+    @Override
+    public String toString() {
+        return "User{"+
+                "userId='"+userId+'\'' +
+                ", name='"+userName +'\'' +
+                ", email='"+userEmail+'\''+
+                ", profilePicture='" + userThumb + '\''+
+                ", role='"+userRole+'\''+
+                '}';
     }
 }

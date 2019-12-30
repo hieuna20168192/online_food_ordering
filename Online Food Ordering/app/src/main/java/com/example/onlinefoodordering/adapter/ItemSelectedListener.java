@@ -5,4 +5,5 @@ public interface ItemSelectedListener {
 
     default void changeCart(Meal meal){}
     default void itemSelected(Meal meal){}
+    default void changeCartFromCategory(Meal meal){}
 }

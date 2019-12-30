@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.onlinefoodordering.firebase.firestore.Callback;
+import com.example.onlinefoodordering.firebase.Callback;
 import com.example.onlinefoodordering.firebase.firestore.FirestoreManages;
 import com.example.onlinefoodordering.model.Category;
 import com.example.onlinefoodordering.model.Meal;
@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
@@ -29,10 +28,11 @@ import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.PublishSubject;
 
+@Singleton
 public class HomeViewModel extends ViewModel {
     // TODO: Implement the ViewModel
 
-    CompositeDisposable disposable;
+    public  CompositeDisposable disposable;
     private FirestoreManages firestoreManages;
     private MutableLiveData<List<Meal>> lists = new MutableLiveData<>();
     private MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
@@ -47,11 +47,13 @@ public class HomeViewModel extends ViewModel {
 
     private List<Meal> mealList = new ArrayList<>();
     private List<Category> typeList = new ArrayList<>();
+    private List<Meal> mealsByCategory = new ArrayList<>();
 
     private PublishSubject<String> mSearchResultSubject;
 
     @Inject
     public HomeViewModel(FirestoreManages services) {
+        Log.d("HomeViewModel", "is running");
         this.firestoreManages = services;
         disposable = new CompositeDisposable();
         mSearchResultSubject = PublishSubject.create();
@@ -62,6 +64,18 @@ public class HomeViewModel extends ViewModel {
 
     public FirestoreManages getFirestoreManages() {
         return firestoreManages;
+    }
+
+    public List<Meal> getMealList() {
+        return mealList;
+    }
+
+    public List<Category> getTypeList() {
+        return typeList;
+    }
+
+    public List<Meal> getMealsByCategory() {
+        return mealsByCategory;
     }
 
     public LiveData<List<Meal>> getRepos() {
@@ -193,6 +207,7 @@ public class HomeViewModel extends ViewModel {
         mSearchResultSubject.onNext(s);
     }
 
+
     public List<Meal> query(String s) {
         List<Meal> listClone = new ArrayList<>();
         for (Meal meal : mealList) {
@@ -203,12 +218,14 @@ public class HomeViewModel extends ViewModel {
         return listClone;
     }
 
-    @Override
-    protected void onCleared() {
-        super.onCleared();
-        if (disposable != null) {
-            disposable.clear();
-            disposable = null;
+    public List<Meal> mealsByCategory(String categoryId) {
+        mealsByCategory = new ArrayList<>();
+        for (Meal meal : mealList) {
+            if (meal.getType() != null && meal.getType().equals(categoryId)) {
+                mealsByCategory.add(meal);
+            }
         }
+        return mealsByCategory;
     }
+
 }

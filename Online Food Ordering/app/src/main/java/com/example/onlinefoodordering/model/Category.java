@@ -2,9 +2,10 @@ package com.example.onlinefoodordering.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Category {
+public class Category implements Serializable {
 
     @SerializedName("id")
     private String idCategory;

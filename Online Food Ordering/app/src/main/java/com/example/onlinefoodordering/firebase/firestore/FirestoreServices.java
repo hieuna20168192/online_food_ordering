@@ -1,10 +1,6 @@
 package com.example.onlinefoodordering.firebase.firestore;
 
-import com.example.onlinefoodordering.model.Category;
-import com.example.onlinefoodordering.model.Meal;
-
-import java.util.List;
-
+import com.example.onlinefoodordering.firebase.Callback;
 
 
 public interface FirestoreServices {

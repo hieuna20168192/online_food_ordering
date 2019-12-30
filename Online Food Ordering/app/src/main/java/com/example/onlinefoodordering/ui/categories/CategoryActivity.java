@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -12,7 +13,10 @@ import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.adapter.ViewPagerCategoryAdapter;
 import com.example.onlinefoodordering.di.component.DaggerApplicationComponent;
 import com.example.onlinefoodordering.model.Category;
+import com.example.onlinefoodordering.utils.Constants;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.List;
 
 import dagger.android.support.DaggerAppCompatActivity;
 
@@ -44,13 +48,19 @@ public class CategoryActivity extends DaggerAppCompatActivity {
         }
     }
     private void initIntent() {
+        Intent intent = getIntent();
+        List<Category> categories =
+                (List<Category>) intent.getSerializableExtra(Constants.EXTRA_CATEGORY);
+        int position = intent.getIntExtra(Constants.EXTRA_POSITION, 0);
+
+
         ViewPagerCategoryAdapter adapter = new ViewPagerCategoryAdapter(
                 getSupportFragmentManager(),
-                Category.sCategoriesList
+                categories
         );
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
-        viewPager.setCurrentItem(0);
+        viewPager.setCurrentItem(position, true);
         adapter.notifyDataSetChanged();
     }
 

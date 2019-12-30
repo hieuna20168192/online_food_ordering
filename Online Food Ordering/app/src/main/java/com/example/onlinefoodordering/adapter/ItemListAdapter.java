@@ -24,7 +24,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
     private ItemSelectedListener itemSelectedListener;
 
     public ItemListAdapter(OrdersViewModel viewModel, LifecycleOwner lifecycleOwner, ItemSelectedListener selectedListener) {
-        viewModel.getOrderList().observe(lifecycleOwner, repos -> {
+         viewModel.getOrderList().observe(lifecycleOwner, repos -> {
             this.itemSelectedListener = selectedListener;
             carts.clear();
             if (repos != null) {
@@ -35,9 +35,9 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
         setHasStableIds(true);
     }
 
-    public void setCart(List<Meal> carts) {
-        this.carts = carts;
-        notifyDataSetChanged();
+    public ItemListAdapter(List<Meal> mealsByCategory, ItemSelectedListener selectedListener) {
+        this.carts = mealsByCategory;
+        this.itemSelectedListener = selectedListener;
     }
 
     @NonNull
@@ -95,6 +95,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                 tCount.setText("" + item.getQuantity());
                 itemQuantity.setText(" x"+ item.getQuantity());
                 listener.changeCart(item);
+                listener.changeCartFromCategory(item);
             }
             if (v.getId() == iMinus.getId()) {
                 if (item.getQuantity() != 0) {
@@ -102,6 +103,7 @@ public class ItemListAdapter extends RecyclerView.Adapter<ItemListAdapter.ViewHo
                     tCount.setText("" + item.getQuantity());
                     itemQuantity.setText(" x"+ item.getQuantity());
                     listener.changeCart(item);
+                    listener.changeCartFromCategory(item);
                 }
             }
         }

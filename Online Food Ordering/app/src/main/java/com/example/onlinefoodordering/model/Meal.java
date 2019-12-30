@@ -19,6 +19,8 @@ public class Meal {
     private String description;
     @SerializedName("minOrder")
     private Long minOrder;
+    @SerializedName("type")
+    private String type;
 
     private int quantity = 0;
 
@@ -76,6 +78,14 @@ public class Meal {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Meal(String idMeal, String mealName, String mealThumb) {

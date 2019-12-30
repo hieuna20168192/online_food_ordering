@@ -55,10 +55,6 @@ public class OrdersViewModel extends ViewModel {
         return isError;
     }
 
-    public List<Meal> getOrdersList() {
-        return ordersList;
-    }
-
     @Inject
     public OrdersViewModel(FirestoreManages firestoreManages) {
         manages = firestoreManages;

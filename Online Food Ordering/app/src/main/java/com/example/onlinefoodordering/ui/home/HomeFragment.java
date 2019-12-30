@@ -1,4 +1,5 @@
 package com.example.onlinefoodordering.ui.home;
+import androidx.core.widget.NestedScrollView;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
@@ -26,10 +27,17 @@ import com.example.onlinefoodordering.adapter.ViewPagerHeaderAdapter;
 import com.example.onlinefoodordering.model.Meal;
 import com.example.onlinefoodordering.ui.categories.CategoryActivity;
 import com.example.onlinefoodordering.ui.orders.OrdersViewModel;
+import com.example.onlinefoodordering.utils.Constants;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
 
+import java.io.Serializable;
+
 import javax.inject.Inject;
+import javax.inject.Singleton;
+
 import dagger.android.support.DaggerFragment;
+
+@Singleton
 public class HomeFragment extends DaggerFragment implements ItemSelectedListener {
 
     // Recycler View
@@ -85,17 +93,12 @@ public class HomeFragment extends DaggerFragment implements ItemSelectedListener
         viewPagerCategory.setPadding(0, 0, 0, 0);
         viewPagerCategory.setPageMargin(50);
 
-//        observableViewModel();
-
-        headerAdapter.setOnItemClickListener(new ViewPagerHeaderAdapter.ClickListener() {
-            @Override
-            public void onClick(View v, int position) {
-                Intent intent = new Intent(getContext(), CategoryActivity.class);
-                startActivity(intent);
-            }
+        headerAdapter.setOnItemClickListener((v, position) -> {
+            Intent intent = new Intent(getActivity(), CategoryActivity.class);
+            intent.putExtra(Constants.EXTRA_CATEGORY, (Serializable) homeViewModel.getTypeList());
+            intent.putExtra(Constants.EXTRA_POSITION, position);
+            startActivity(intent);
         });
-
-
 
         searchHomeView.addTextChangedListener(new TextWatcher() {
             @Override

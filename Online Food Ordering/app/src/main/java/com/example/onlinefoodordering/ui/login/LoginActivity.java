@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.onlinefoodordering.R;
 import com.example.onlinefoodordering.ui.main.MainActivity;
+import com.example.onlinefoodordering.ui.register.RegisterActivity;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
+
+import java.util.concurrent.ExecutionException;
 
 import javax.inject.Inject;
 
@@ -25,6 +29,11 @@ public class LoginActivity extends DaggerAppCompatActivity {
     private Button btnLogin;
     private TextView email;
     private TextView password;
+    private TextView backRegister;
+
+    private ImageView bgLoginImage;
+    private View frame;
+    private TextView loginLoading;
 
 
     @Override
@@ -34,15 +43,50 @@ public class LoginActivity extends DaggerAppCompatActivity {
         btnLogin = findViewById(R.id.btn_login);
         email = findViewById(R.id.txt_login_email);
         password = findViewById(R.id.txt_login_password);
+        backRegister = findViewById(R.id.textview_back_register);
+
+        bgLoginImage = findViewById(R.id.bg_login);
+        frame = findViewById(R.id.login_frame);
+        loginLoading = findViewById(R.id.login_loading);
 
         loginViewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel.class);
 
+        observable();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                loginViewModel.getAuthManages().login(email.getText().toString(), password.getText().toString());
-                Intent intent = new Intent(getApplication(), MainActivity.class);
+                try {
+                    loginViewModel.login(email.getText().toString(), password.getText().toString());
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        backRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplication(), RegisterActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void observable() {
+
+        loginViewModel.getLoading().observe(this, isLoading -> {
+            if (isLoading != null) {
+                if (isLoading) {
+                    loginLoading.setVisibility(View.VISIBLE);
+                    frame.setVisibility(View.INVISIBLE);
+                    bgLoginImage.setVisibility(View.INVISIBLE);
+                } else {
+                    loginLoading.setVisibility(View.INVISIBLE);
+                    frame.setVisibility(View.VISIBLE);
+                    bgLoginImage.setVisibility(View.VISIBLE);
+                }
             }
         });
     }

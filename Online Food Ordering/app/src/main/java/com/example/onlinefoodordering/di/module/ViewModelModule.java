@@ -7,6 +7,7 @@ import com.example.onlinefoodordering.di.util.ViewModelKey;
 import com.example.onlinefoodordering.ui.home.HomeViewModel;
 import com.example.onlinefoodordering.ui.login.LoginViewModel;
 import com.example.onlinefoodordering.ui.orders.OrdersViewModel;
+import com.example.onlinefoodordering.ui.register.RegisterViewModel;
 import com.example.onlinefoodordering.utils.ViewModelFactory;
 
 import javax.inject.Singleton;
@@ -22,6 +23,11 @@ public abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel.class)
     abstract ViewModel bindLoginViewModel (LoginViewModel loginViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegisterViewModel.class)
+    abstract ViewModel bindRegisterViewModel (RegisterViewModel registerViewModel);
 
     @Binds
     @IntoMap

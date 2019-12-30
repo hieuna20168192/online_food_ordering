@@ -6,6 +6,8 @@ import com.example.onlinefoodordering.ui.detail.DetailActivity;
 import com.example.onlinefoodordering.ui.login.LoginActivity;
 import com.example.onlinefoodordering.ui.main.MainActivity;
 import com.example.onlinefoodordering.ui.main.MainFragmentBindingModule;
+import com.example.onlinefoodordering.ui.register.RegisterActivity;
+import com.example.onlinefoodordering.ui.register.RegisterViewModel;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -18,6 +20,9 @@ public abstract class ActivityBindingModule {
 
     @ContributesAndroidInjector
     abstract LoginActivity bindLoginActivity();
+
+    @ContributesAndroidInjector
+    abstract RegisterActivity bindRegisterActivity();
 
     @ContributesAndroidInjector
     abstract DetailActivity bindDetailActivity();

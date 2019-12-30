@@ -32,8 +32,6 @@ import dagger.android.support.DaggerFragment;
 
 public class OrdersFragment extends DaggerFragment implements ItemSelectedListener{
 
-    private OrdersViewModel mViewModel;
-
     // Recycler View
     RecyclerView recyclerView;
 
@@ -80,11 +78,6 @@ public class OrdersFragment extends DaggerFragment implements ItemSelectedListen
     }
 
     private void observableViewModel() {
-        ordersViewModel.getOrderList().observe(this, cart -> {
-            if (cart != null) {
-
-            }
-        });
 
         ordersViewModel.getGrandTotal().observe(this, total -> {
             if (total != null) {

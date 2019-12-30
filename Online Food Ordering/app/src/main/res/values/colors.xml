@@ -13,6 +13,13 @@
     <color name="colorYellow">#F79E1F</color>
     <color name="colorRating">#2783BD </color>
     <color name="transparent">#00000000</color>
+    <color name="navIconColor">#06C8D4</color>
+    <color name="colorLayerBack">#8a56ab</color>
+    <color name="colorBack">#241333</color>
+    <color name="colorTitle">#362742</color>
+    <color name="colorSubTitle">#c5c9cf</color>
+    <color name="colorTitleWhite">#ffffff</color>
+    <color name="colorSubTitleWhite">#b795ce</color>
 
     <!-- colors for button style -->
 

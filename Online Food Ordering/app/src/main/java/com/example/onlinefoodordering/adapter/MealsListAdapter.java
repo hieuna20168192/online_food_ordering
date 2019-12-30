@@ -163,6 +163,7 @@ public class MealsListAdapter extends RecyclerView.Adapter<MealsListAdapter.View
                 if (meal != null) {
                     listener.itemSelected(meal);
                 }
+                dialog.dismiss();
             }
         }
 
